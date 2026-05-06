@@ -136,19 +136,59 @@ const packages = [
 function Logo() {
   return (
     <a className="brand" href="#top" aria-label="MINEKA AI inicio">
-      <span className="brandMark"><span>M</span></span>
-      <span className="brandText">
-        <strong>MINEKA</strong>
-        <em>AI OPERATIONS</em>
-      </span>
+      <img className="brandLogo" src="/logo.svg" alt="MINEKA AI" />
     </a>
   );
 }
 
+function useScrollEnhancements() {
+  const [isScrolled, setIsScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 18);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  React.useEffect(() => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const revealItems = document.querySelectorAll(
+      '.section, .serviceCard, .automationCard, .audienceCard, .packageCard, .methodCard, .caseItem, .contactCard'
+    );
+
+    revealItems.forEach((item) => item.classList.add('reveal'));
+
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      revealItems.forEach((item) => item.classList.add('is-visible'));
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.14, rootMargin: '0px 0px -48px 0px' }
+    );
+
+    revealItems.forEach((item) => observer.observe(item));
+    return () => observer.disconnect();
+  }, []);
+
+  return isScrolled;
+}
+
 function App() {
+  const isScrolled = useScrollEnhancements();
+
   return (
     <main id="top">
-      <nav className="nav">
+      <nav className={`nav${isScrolled ? ' is-scrolled' : ''}`}>
         <Logo />
         <div className="navLinks" aria-label="Navegación principal">
           <a href="#servicios">Servicios</a>
@@ -186,14 +226,22 @@ function App() {
 
           <div className="orbitalCard" aria-label="Visual de núcleo operativo MINEKA AI">
             <div className="orbitalGlow" />
-            <div className="core">
+            <div className="networkLine lineWhatsApp" />
+            <div className="networkLine lineDatos" />
+            <div className="networkLine lineFlujos" />
+            <div className="networkLine lineReportes" />
+            <div className="networkLine lineClientes" />
+            <div className="networkLine lineAutomatizacion" />
+            <div className="core networkCore">
               <Radar className="coreIcon" size={52} />
-              <span>NÚCLEO OPERATIVO</span>
+              <span>MINEKA OS</span>
             </div>
-            <div className="node nodeOne"><Bot size={18} /> WhatsApp AI</div>
-            <div className="node nodeTwo"><DatabaseZap size={18} /> Datos</div>
-            <div className="node nodeThree"><Zap size={18} /> Flujos</div>
-            <div className="node nodeFour"><Gauge size={18} /> Reportes</div>
+            <div className="node nodeWhatsApp"><Bot size={18} /> WhatsApp AI</div>
+            <div className="node nodeDatos"><DatabaseZap size={18} /> Datos</div>
+            <div className="node nodeFlujos"><Zap size={18} /> Flujos</div>
+            <div className="node nodeReportes"><Gauge size={18} /> Reportes</div>
+            <div className="node nodeClientes"><Users size={18} /> Clientes</div>
+            <div className="node nodeAutomatizacion"><Workflow size={18} /> Automatización</div>
           </div>
         </div>
       </section>
@@ -357,6 +405,8 @@ function App() {
         <Logo />
         <p>© {new Date().getFullYear()} MINEKA AI. Sistemas inteligentes para negocios reales.</p>
       </footer>
+
+      <WhatsAppFloatingButton />
     </main>
   );
 }
@@ -366,17 +416,38 @@ function ContactForm() {
   const [email, setEmail] = React.useState('');
   const [interest, setInterest] = React.useState('');
   const [message, setMessage] = React.useState('');
+  const [submitted, setSubmitted] = React.useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const formPayload = { name, email, interest, message };
     const wa = getWhatsAppLink(getContactMessage(formPayload));
+    setSubmitted(true);
     if (wa) {
       window.open(wa, '_blank', 'noopener,noreferrer');
       return;
     }
     window.location.href = getMailtoLink(formPayload);
   };
+
+  const handleReset = () => {
+    setName('');
+    setEmail('');
+    setInterest('');
+    setMessage('');
+    setSubmitted(false);
+  };
+
+  if (submitted) {
+    return (
+      <div className="formConfirmation" role="status" aria-live="polite">
+        <div className="confirmationIcon"><Check size={36} /></div>
+        <h3>¡Gracias! Tu mensaje fue enviado.</h3>
+        <p>Te contactaremos en las próximas 24 horas.</p>
+        <button className="btn ghost" type="button" onClick={handleReset}>Enviar otro mensaje</button>
+      </div>
+    );
+  }
 
   return (
     <form className="form" onSubmit={handleSubmit}>
@@ -395,6 +466,25 @@ function ContactForm() {
       <label>Mensaje<textarea placeholder="Cuéntanos qué proceso quieres automatizar" value={message} onChange={(e) => setMessage(e.target.value)} /></label>
       <button className="btn submit" type="submit">Enviar mensaje</button>
     </form>
+  );
+}
+
+function WhatsAppFloatingButton() {
+  const href = getWhatsAppLink();
+
+  if (!href) return null;
+
+  return (
+    <a
+      className="whatsappFloat"
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Escríbenos por WhatsApp"
+    >
+      <MessageCircle size={28} />
+      <span className="whatsappTooltip">Escríbenos por WhatsApp</span>
+    </a>
   );
 }
 

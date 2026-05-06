@@ -1,4 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect width="100" height="100" rx="24" fill="#0b1118" stroke="rgba(0,212,255,0.45)" stroke-width="2"/>
-  <text x="50" y="66" text-anchor="middle" font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="52" font-weight="800" fill="#f4f7fa" letter-spacing="-2">M</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="MINEKA AI">
+  <defs>
+    <linearGradient id="minekaGradient" x1="18" y1="16" x2="80" y2="82" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00D4FF"/>
+      <stop offset="1" stop-color="#B6FF3B"/>
+    </linearGradient>
+    <radialGradient id="minekaGlow" cx="50%" cy="46%" r="58%">
+      <stop stop-color="#00D4FF" stop-opacity=".28"/>
+      <stop offset=".55" stop-color="#00D4FF" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#05070A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="96" height="96" rx="24" fill="#05070A"/>
+  <rect x="6" y="6" width="84" height="84" rx="20" fill="#081019" stroke="url(#minekaGradient)" stroke-opacity=".55" stroke-width="2"/>
+  <circle cx="48" cy="48" r="38" fill="url(#minekaGlow)"/>
+  <path d="M23 70V28h11l14 22 14-22h11v42H61V50L50 66h-4L35 50v20H23Z" fill="#F4F7FA"/>
+  <path d="M34 28h-11l23 38h4l23-38H62L48 50 34 28Z" fill="url(#minekaGradient)" opacity=".92"/>
+  <path d="M22 69 48 50 74 69M22 28l26 22 26-22" fill="none" stroke="url(#minekaGradient)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".72"/>
+  <circle cx="22" cy="28" r="4" fill="#00D4FF"/>
+  <circle cx="74" cy="28" r="4" fill="#B6FF3B"/>
+  <circle cx="48" cy="50" r="4.8" fill="#F4F7FA"/>
+  <circle cx="22" cy="69" r="4" fill="#B6FF3B"/>
+  <circle cx="74" cy="69" r="4" fill="#00D4FF"/>
 </svg>
