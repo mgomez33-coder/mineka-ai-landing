@@ -60,8 +60,9 @@ main { overflow: hidden; }
 .brand { display: flex; align-items: center; gap: 12px; min-width: max-content; }
 .brandLogo { width: 178px; height: 42px; display: block; object-fit: contain; }
 
-.navLinks { display: flex; align-items: center; gap: 24px; color: rgba(244, 247, 250, 0.72); font-size: 14px; }
+.navLinks { display: flex; align-items: center; gap: 18px; color: rgba(244, 247, 250, 0.72); font-size: 14px; }
 .navLinks a:hover { color: var(--ink); }
+.navActions { display: inline-flex; align-items: center; gap: 10px; min-width: max-content; }
 .navCta {
   display: inline-flex;
   align-items: center;
@@ -74,6 +75,35 @@ main { overflow: hidden; }
   color: var(--lime);
   font-weight: 700;
 }
+.languageToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  min-height: 38px;
+  padding: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.045);
+  color: rgba(244, 247, 250, 0.62);
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 900;
+}
+.languageToggle span {
+  display: grid;
+  place-items: center;
+  min-width: 34px;
+  min-height: 30px;
+  border-radius: 999px;
+  transition: background .2s ease, color .2s ease, box-shadow .2s ease;
+}
+.languageToggle span.active {
+  background: var(--cyan);
+  color: #021014;
+  box-shadow: 0 0 20px rgba(0, 212, 255, .28);
+}
+.languageToggle:hover { border-color: rgba(0, 212, 255, 0.34); }
 
 .hero { min-height: 100vh; display: grid; align-items: center; padding: 132px 24px 70px; position: relative; }
 .hero::after {
@@ -294,6 +324,9 @@ h1 { font-size: clamp(48px, 7vw, 88px); line-height: 0.92; letter-spacing: -0.07
 .caseList { display: grid; gap: 12px; }
 .caseItem { display: flex; align-items: center; gap: 12px; padding: 18px 20px; border-radius: 18px; border: 1px solid var(--line); background: var(--surface-2); color: rgba(244,247,250,.78); }
 .caseItem svg { color: var(--lime); flex: 0 0 auto; }
+.caseItem div { display: grid; gap: 4px; }
+.caseItem strong { color: var(--ink); font-size: 15px; line-height: 1.2; }
+.caseItem span { color: rgba(244,247,250,.62); font-size: 14px; line-height: 1.45; }
 
 .contactCard { display: grid; grid-template-columns: .9fr 1.1fr; gap: 34px; padding: 34px; border-radius: 36px; border: 1px solid rgba(0,212,255,.22); background: linear-gradient(135deg, rgba(0,212,255,.10), rgba(182,255,59,.05) 45%, rgba(255,255,255,.035)); box-shadow: var(--shadow); }
 .contactActions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
@@ -433,9 +466,11 @@ h1 { font-size: clamp(48px, 7vw, 88px); line-height: 0.92; letter-spacing: -0.07
 }
 
 @media (max-width: 620px) {
-  .nav { top: 10px; width: calc(100% - 20px); }
+  .nav { top: 10px; width: calc(100% - 20px); height: 64px; padding-right: 10px; }
   .brandLogo { width: 142px; }
   .navCta { display: none; }
+  .languageToggle { min-height: 36px; }
+  .languageToggle span { min-width: 30px; min-height: 28px; }
   .hero { padding-inline: 18px; }
   h1 { font-size: 48px; }
   .section { width: calc(100% - 32px); padding: 70px 0; }
