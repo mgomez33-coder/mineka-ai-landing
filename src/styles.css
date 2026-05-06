@@ -187,7 +187,7 @@ h1 { font-size: clamp(48px, 7vw, 88px); line-height: 0.92; letter-spacing: -0.07
 .sectionHeader.compact { align-items: start; }
 
 .serviceGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-.serviceCard, .methodCard {
+.serviceCard, .methodCard, .automationCard, .audienceCard {
   border: 1px solid var(--line);
   border-radius: 26px;
   padding: 24px;
@@ -195,10 +195,46 @@ h1 { font-size: clamp(48px, 7vw, 88px); line-height: 0.92; letter-spacing: -0.07
   min-height: 245px;
   transition: transform .2s ease, border-color .2s ease, background .2s ease;
 }
-.serviceCard:hover, .methodCard:hover { transform: translateY(-4px); border-color: rgba(0,212,255,.34); background: rgba(18, 25, 36, 0.88); }
+.serviceCard:hover, .methodCard:hover, .automationCard:hover, .audienceCard:hover { transform: translateY(-4px); border-color: rgba(0,212,255,.34); background: rgba(18, 25, 36, 0.88); }
 .iconWrap { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 16px; background: rgba(0, 212, 255, 0.10); color: var(--cyan); margin-bottom: 22px; }
-.serviceCard h3, .methodCard h3 { font-size: 18px; line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 12px; }
-.serviceCard p, .methodCard p { color: rgba(244,247,250,.62); line-height: 1.55; font-size: 14.5px; }
+.serviceCard h3, .methodCard h3, .automationCard h3, .audienceCard h3 { font-size: 18px; line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 12px; }
+.serviceCard p, .methodCard p, .automationCard p, .audienceCard p { color: rgba(244,247,250,.62); line-height: 1.55; font-size: 14.5px; }
+
+.automationGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.audienceGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.audienceCard { min-height: 210px; }
+
+.packageGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.packageCard {
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 28px;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+.packageCard:hover { transform: translateY(-4px); border-color: rgba(0,212,255,.34); background: rgba(18, 25, 36, 0.88); }
+.packageTag {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--lime);
+  background: rgba(182, 255, 59, 0.12);
+  border: 1px solid rgba(182, 255, 59, 0.28);
+}
+.packageCard h3 { font-size: 22px; letter-spacing: -0.03em; margin: 0; }
+.packageCard p { color: rgba(244,247,250,.62); line-height: 1.55; font-size: 15px; margin: 0; }
+.packageCard ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.packageCard li { display: flex; align-items: center; gap: 10px; color: rgba(244,247,250,.78); font-size: 14.5px; }
+.packageCard li svg { color: var(--lime); flex: 0 0 auto; }
+.packageCard .btn { margin-top: auto; }
 
 .methodGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
 .methodCard span { display: block; color: var(--cyan); font-weight: 900; margin-bottom: 42px; letter-spacing: 0.12em; }
@@ -209,6 +245,7 @@ h1 { font-size: clamp(48px, 7vw, 88px); line-height: 0.92; letter-spacing: -0.07
 .caseItem svg { color: var(--lime); flex: 0 0 auto; }
 
 .contactCard { display: grid; grid-template-columns: .9fr 1.1fr; gap: 34px; padding: 34px; border-radius: 36px; border: 1px solid rgba(0,212,255,.22); background: linear-gradient(135deg, rgba(0,212,255,.10), rgba(182,255,59,.05) 45%, rgba(255,255,255,.035)); box-shadow: var(--shadow); }
+.contactActions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
 .form { display: grid; gap: 14px; }
 .form label { display: grid; gap: 8px; color: rgba(244,247,250,.72); font-size: 14px; font-weight: 700; }
 .form input, .form select, .form textarea {
@@ -229,7 +266,9 @@ h1 { font-size: clamp(48px, 7vw, 88px); line-height: 0.92; letter-spacing: -0.07
   .navLinks { display: none; }
   .heroGrid, .useCases, .contactCard { grid-template-columns: 1fr; }
   .orbitalCard { min-height: 460px; }
-  .serviceGrid, .methodGrid { grid-template-columns: repeat(2, 1fr); }
+  .serviceGrid, .methodGrid, .automationGrid { grid-template-columns: repeat(2, 1fr); }
+  .audienceGrid { grid-template-columns: repeat(2, 1fr); }
+  .packageGrid { grid-template-columns: 1fr; }
   .sectionHeader { display: block; }
 }
 
@@ -240,7 +279,7 @@ h1 { font-size: clamp(48px, 7vw, 88px); line-height: 0.92; letter-spacing: -0.07
   .hero { padding-inline: 18px; }
   h1 { font-size: 48px; }
   .section { width: calc(100% - 32px); padding: 70px 0; }
-  .serviceGrid, .methodGrid { grid-template-columns: 1fr; }
+  .serviceGrid, .methodGrid, .automationGrid, .audienceGrid { grid-template-columns: 1fr; }
   .orbitalCard { min-height: 420px; border-radius: 28px; }
   .node { font-size: 12px; }
   .nodeOne, .nodeThree { left: 7%; }
