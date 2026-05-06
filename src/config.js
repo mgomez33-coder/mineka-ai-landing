@@ -26,12 +26,24 @@ export const CONFIG = {
 };
 
 // Helpers de contacto
-export function getMailtoLink({ name = '', interest = '', message = '' } = {}) {
+export function getMailtoLink({ name = '', email = '', interest = '', message = '' } = {}) {
   const subject = encodeURIComponent(`Consulta MINEKA AI${name ? ` - ${name}` : ''}`);
   const body = encodeURIComponent(
-    `Nombre: ${name || '(no especificado)'}\nInterés: ${interest || '(no especificado)'}\n\n${message || ''}\n\n---\nEnviado desde mineka-ai-landing`
+    `Nombre: ${name || '(no especificado)'}\nEmail: ${email || '(no especificado)'}\nInterés: ${interest || '(no especificado)'}\n\n${message || ''}\n\n---\nEnviado desde mineka-ai-landing`
   );
   return `mailto:${CONFIG.email}?subject=${subject}&body=${body}`;
+}
+
+export function getContactMessage({ name = '', email = '', interest = '', message = '' } = {}) {
+  return [
+    `Hola MINEKA AI, quiero agendar un diagnóstico de automatización.`,
+    '',
+    `Nombre: ${name || '(no especificado)'}`,
+    `Email: ${email || '(no especificado)'}`,
+    `Interés: ${interest || '(no especificado)'}`,
+    '',
+    message || '(sin mensaje adicional)',
+  ].join('\n');
 }
 
 export function getWhatsAppLink(text = CONFIG.whatsappMessage) {

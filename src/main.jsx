@@ -29,7 +29,7 @@ import {
   Zap,
 } from 'lucide-react';
 import './styles.css';
-import { CONFIG, getMailtoLink, getWhatsAppLink } from './config.js';
+import { CONFIG, getContactMessage, getMailtoLink, getWhatsAppLink } from './config.js';
 
 const services = [
   {
@@ -369,12 +369,13 @@ function ContactForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const wa = getWhatsAppLink();
+    const formPayload = { name, email, interest, message };
+    const wa = getWhatsAppLink(getContactMessage(formPayload));
     if (wa) {
       window.open(wa, '_blank', 'noopener,noreferrer');
       return;
     }
-    window.location.href = getMailtoLink({ name, interest, message });
+    window.location.href = getMailtoLink(formPayload);
   };
 
   return (
