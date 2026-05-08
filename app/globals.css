@@ -403,6 +403,113 @@ h1 { font-size: clamp(48px, 7vw, 88px); line-height: 0.92; letter-spacing: -0.07
 
 .footer { width: min(1160px, calc(100% - 48px)); margin: 0 auto; padding: 34px 0 48px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 24px; color: rgba(244,247,250,.54); }
 
+.authPage, .appShell, .pricingPage {
+  min-height: 100vh;
+  padding: 34px 24px 80px;
+}
+.authPage {
+  display: grid;
+  place-items: center;
+}
+.authPanel, .panel {
+  width: min(760px, 100%);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  padding: 30px;
+}
+.authBrand { margin-bottom: 34px; }
+.authPanel h1, .panel h1, .pricingHero h1 {
+  font-size: clamp(38px, 5vw, 68px);
+  line-height: 1;
+  margin: 14px 0 18px;
+}
+.authPanel p, .panel p, .pricingHero p {
+  color: rgba(244,247,250,.68);
+  line-height: 1.65;
+}
+.authActions, .panelActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.authActions {
+  margin: 24px 0;
+}
+.notice, .formStatus {
+  border: 1px solid rgba(0, 212, 255, .26);
+  border-radius: 16px;
+  background: rgba(0, 212, 255, .08);
+  color: rgba(244,247,250,.78);
+  padding: 14px 16px;
+}
+.formStatus { margin-bottom: 0; }
+.appHeader {
+  width: min(1160px, 100%);
+  margin: 0 auto 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+.appHeader a:not(.brand) {
+  color: rgba(244,247,250,.74);
+  font-weight: 700;
+}
+.dashboardGrid {
+  width: min(1160px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 18px;
+}
+.dashboardGrid .panel:first-child {
+  grid-column: 1 / -1;
+}
+.panel {
+  width: 100%;
+}
+.panel h2, .pricingSection h2 {
+  font-size: clamp(28px, 3vw, 44px);
+  letter-spacing: -0.04em;
+  margin: 0 0 14px;
+}
+.formPanel {
+  margin: 0 auto;
+}
+.pricingHero {
+  width: min(960px, 100%);
+  margin: 70px auto 20px;
+  text-align: center;
+}
+.pricingHero .notice {
+  margin: 18px auto 0;
+  text-align: left;
+}
+.pricingSection h2 {
+  margin-bottom: 22px;
+}
+.priceLine {
+  display: grid;
+  gap: 4px;
+  padding: 6px 0 10px;
+}
+.priceLine strong {
+  font-size: 32px;
+  letter-spacing: -0.04em;
+}
+.priceLine span {
+  color: rgba(244,247,250,.58);
+  font-weight: 700;
+}
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: .62;
+  transform: none;
+}
+
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes heroGradient {
   from { transform: translate3d(-1%, -1%, 0) scale(1); opacity: .68; }
@@ -488,6 +595,9 @@ h1 { font-size: clamp(48px, 7vw, 88px); line-height: 0.92; letter-spacing: -0.07
   .lineAutomatizacion { transform: rotate(135deg); width: 34%; }
   .contactCard { padding: 22px; border-radius: 28px; }
   .footer { flex-direction: column; align-items: flex-start; }
+  .authPage, .appShell, .pricingPage { padding: 24px 16px 64px; }
+  .appHeader, .dashboardGrid { display: grid; grid-template-columns: 1fr; }
+  .authPanel, .panel { padding: 22px; }
   .whatsappFloat { width: 54px; height: 54px; right: 16px; bottom: 16px; }
   .whatsappTooltip { display: none; }
 }

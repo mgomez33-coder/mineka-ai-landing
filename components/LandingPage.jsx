@@ -1,5 +1,6 @@
+'use client';
+
 import React from 'react';
-import { createRoot } from 'react-dom/client';
 import {
   ArrowRight,
   Bot,
@@ -28,9 +29,8 @@ import {
   Workflow,
   Zap,
 } from 'lucide-react';
-import './styles.css';
-import { CONFIG, getMailtoLink, getWhatsAppLink } from './config.js';
-import { translations } from './i18n.js';
+import { CONFIG, getMailtoLink, getWhatsAppLink } from '../lib/config.js';
+import { translations } from '../lib/i18n.js';
 
 const LANG_STORAGE_KEY = 'mineka-lang';
 
@@ -159,12 +159,17 @@ function useScrollEnhancements() {
   return isScrolled;
 }
 
-function App() {
+export default function LandingPage() {
   const isScrolled = useScrollEnhancements();
-  const [lang, setLang] = React.useState(() => {
+  const [lang, setLang] = React.useState('es');
+
+  React.useEffect(() => {
     const storedLang = localStorage.getItem(LANG_STORAGE_KEY);
-    return storedLang === 'en' || storedLang === 'es' ? storedLang : 'es';
-  });
+    if (storedLang === 'en' || storedLang === 'es') {
+      setLang(storedLang);
+    }
+  }, []);
+
   const locale = translations[lang] ?? translations.es;
   const t = React.useCallback((key) => getNestedValue(locale, key) ?? key, [locale]);
 
@@ -188,12 +193,13 @@ function App() {
           <a href="#paquetes">{t('nav.packages')}</a>
           <a href="#metodo">{t('nav.method')}</a>
           <a href="#casos">{t('nav.cases')}</a>
+          <a href="/precios">Precios</a>
           <a href="#contacto">{t('nav.contact')}</a>
         </div>
         <div className="navActions">
           <LanguageToggle lang={lang} setLang={setLang} t={t} />
-          <a className="navCta" href="#contacto">
-            {t('nav.contact')}
+          <a className="navCta" href="/login">
+            Login
           </a>
         </div>
       </nav>
@@ -208,7 +214,8 @@ function App() {
             </p>
             <div className="heroActions">
               <a className="btn primary" href="#contacto">{t('hero.primaryCta')} <ArrowRight size={18} /></a>
-              <a className="btn ghost" href="#automatizamos">{t('hero.secondaryCta')}</a>
+              <a className="btn ghost" href="/precios">Ver precios</a>
+              <a className="btn ghost" href="/login">Entrar</a>
             </div>
             <div className="trustRow" aria-label={t('hero.trustAria')}>
               {t('hero.badges').map((badge) => (
@@ -332,7 +339,7 @@ function App() {
                     <li key={feature}><Check size={16} /> {feature}</li>
                   ))}
                 </ul>
-                <a className="btn primary" href="#contacto">{pkg.cta}</a>
+                <a className="btn primary" href="/precios">{pkg.cta}</a>
               </article>
             );
           })}
@@ -493,5 +500,3 @@ function WhatsAppFloatingButton({ t }) {
     </a>
   );
 }
-
-createRoot(document.getElementById('root')).render(<App />);
