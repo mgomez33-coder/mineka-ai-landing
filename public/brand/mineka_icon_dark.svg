@@ -24,12 +24,19 @@
   </style>
 </defs>
 
+<rect width="1024" height="1024" rx="190" fill="#031923"/>
+<radialGradient id="iconBg" cx="40%" cy="38%" r="72%">
+  <stop offset="0" stop-color="#0A3B48" stop-opacity="0.85"/>
+  <stop offset="1" stop-color="#031923" stop-opacity="0"/>
+</radialGradient>
+<rect width="1024" height="1024" rx="190" fill="url(#iconBg)"/>
 
-<g transform="translate(250 272) scale(2.4)">
+<g transform="translate(255 280) scale(2.35)" filter="url(#softGlow)">
   <path d="M32 152 L32 32 L110 88 L188 32 L188 152" fill="none" stroke="url(#minekaStroke)" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M32 152 L110 105 L188 152" fill="none" stroke="url(#minekaStroke)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
   <circle cx="32" cy="152" r="18" fill="#031923" stroke="#18D8F2" stroke-width="10"/>
   <circle cx="110" cy="105" r="18" fill="#031923" stroke="#44D9B5" stroke-width="10"/>
   <circle cx="188" cy="152" r="18" fill="#031923" stroke="#A8F034" stroke-width="10"/>
 </g>
+<text x="512" y="802" text-anchor="middle" class="sub" font-size="38" fill="#18D8F2">AI OPS</text>
 </svg>

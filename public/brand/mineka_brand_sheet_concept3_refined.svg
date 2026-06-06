@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1800" viewBox="0 0 1800 1800">
+
+<defs>
+  <linearGradient id="minekaStroke" x1="0" y1="0" x2="220" y2="120" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#18D8F2"/>
+    <stop offset="0.52" stop-color="#44D9B5"/>
+    <stop offset="1" stop-color="#A8F034"/>
+  </linearGradient>
+  <linearGradient id="minekaGlow" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#18D8F2" stop-opacity="0.55"/>
+    <stop offset="1" stop-color="#A8F034" stop-opacity="0.45"/>
+  </linearGradient>
+  <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="4" result="blur"/>
+    <feMerge>
+      <feMergeNode in="blur"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+  <style>
+    .word { font-family: 'DejaVu Sans', 'Montserrat', 'Inter', Arial, sans-serif; font-weight: 700; letter-spacing: 0.22em; }
+    .sub { font-family: 'DejaVu Sans', 'Montserrat', 'Inter', Arial, sans-serif; font-weight: 500; letter-spacing: 0.34em; }
+    .micro { font-family: 'DejaVu Sans', 'Montserrat', 'Inter', Arial, sans-serif; font-weight: 600; letter-spacing: 0.20em; }
+  </style>
+</defs>
+
+<rect width="1800" height="1800" fill="#031923"/>
+<radialGradient id="sheetBg" cx="35%" cy="20%" r="80%">
+  <stop offset="0" stop-color="#0B3542" stop-opacity="0.75"/>
+  <stop offset="1" stop-color="#031923" stop-opacity="0"/>
+</radialGradient>
+<rect width="1800" height="1800" fill="url(#sheetBg)"/>
+<text x="120" y="150" class="micro" font-size="34" fill="#18D8F2">CONCEPTO 3 REFINADO</text>
+<text x="120" y="225" font-family="DejaVu Sans, Arial" font-size="58" font-weight="700" fill="#F4FAFF">MINEKA AI — AI Operations</text>
+<text x="120" y="292" font-family="DejaVu Sans, Arial" font-size="30" fill="#7FA2AE">Automatiza procesos. Conecta datos. Escala mejor.</text>
+<g transform="translate(120 390)">
+  <rect width="1560" height="460" rx="36" fill="#061F2B" stroke="#12404E"/>
+  
+<g transform="translate(100 105) scale(1.35)" filter="url(#softGlow)">
+  <path d="M32 152 L32 32 L110 88 L188 32 L188 152" fill="none" stroke="url(#minekaStroke)" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M32 152 L110 105 L188 152" fill="none" stroke="url(#minekaStroke)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+  <circle cx="32" cy="152" r="18" fill="#031923" stroke="#18D8F2" stroke-width="10"/>
+  <circle cx="110" cy="105" r="18" fill="#031923" stroke="#44D9B5" stroke-width="10"/>
+  <circle cx="188" cy="152" r="18" fill="#031923" stroke="#A8F034" stroke-width="10"/>
+</g>
+  <text x="470" y="210" class="word" font-size="86" fill="#F4FAFF">MINEKA AI</text>
+  <text x="476" y="290" class="sub" font-size="34" fill="#18D8F2">AI Operations</text>
+</g>
+<g transform="translate(120 930)">
+  <rect width="760" height="520" rx="36" fill="#F8FCFF"/>
+  
+<g transform="translate(105 130) scale(1.05)">
+  <path d="M32 152 L32 32 L110 88 L188 32 L188 152" fill="none" stroke="url(#minekaStroke)" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M32 152 L110 105 L188 152" fill="none" stroke="url(#minekaStroke)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+  <circle cx="32" cy="152" r="18" fill="#031923" stroke="#18D8F2" stroke-width="10"/>
+  <circle cx="110" cy="105" r="18" fill="#031923" stroke="#44D9B5" stroke-width="10"/>
+  <circle cx="188" cy="152" r="18" fill="#031923" stroke="#A8F034" stroke-width="10"/>
+</g>
+  <text x="360" y="235" class="word" font-size="47" fill="#071723">MINEKA AI</text>
+  <text x="365" y="292" class="sub" font-size="20" fill="#02AFC9">AI Operations</text>
+  <text x="70" y="430" class="micro" font-size="20" fill="#52626B">VERSIÓN CLARA</text>
+</g>
+<g transform="translate(980 930)">
+  <rect width="700" height="520" rx="36" fill="#061F2B" stroke="#12404E"/>
+  
+<g transform="translate(240 100) scale(1.05)" filter="url(#softGlow)">
+  <path d="M32 152 L32 32 L110 88 L188 32 L188 152" fill="none" stroke="url(#minekaStroke)" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M32 152 L110 105 L188 152" fill="none" stroke="url(#minekaStroke)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+  <circle cx="32" cy="152" r="18" fill="#031923" stroke="#18D8F2" stroke-width="10"/>
+  <circle cx="110" cy="105" r="18" fill="#031923" stroke="#44D9B5" stroke-width="10"/>
+  <circle cx="188" cy="152" r="18" fill="#031923" stroke="#A8F034" stroke-width="10"/>
+</g>
+  <text x="350" y="430" text-anchor="middle" class="micro" font-size="20" fill="#7FA2AE">ISOTIPO / FAVICON</text>
+</g>
+<g transform="translate(120 1535)">
+  <circle cx="0" cy="0" r="7" fill="#18D8F2"/><line x1="25" y1="0" x2="540" y2="0" stroke="#18D8F2" opacity="0.55"/>
+  <text x="595" y="10" class="micro" font-size="19" fill="#18D8F2">AI OPERATIONS THAT DRIVE RESULTS</text>
+  <line x1="1110" y1="0" x2="1625" y2="0" stroke="#A8F034" opacity="0.55"/><circle cx="1650" cy="0" r="7" fill="#A8F034"/>
+</g>
+</svg>

@@ -16,7 +16,6 @@ import {
   MessageCircle,
   MessageSquare,
   MonitorSmartphone,
-  Radar,
   ShieldCheck,
   ShoppingBag,
   Sparkles,
@@ -95,7 +94,11 @@ function buildContactMessage({ name = '', email = '', interest = '', message = '
 function Logo({ t }) {
   return (
     <a className="brand" href="#top" aria-label={t('nav.homeAria')}>
-      <img className="brandLogo" src="/logo.svg" alt="MINEKA AI" />
+      <img className="brandMark" src="/brand/mineka_icon_web.svg" alt="" aria-hidden="true" />
+      <span className="brandText" aria-hidden="true">
+        <span>MINEKA AI</span>
+        <small>AI Operations</small>
+      </span>
     </a>
   );
 }
@@ -226,7 +229,7 @@ function App() {
             <div className="networkLine lineClientes" />
             <div className="networkLine lineAutomatizacion" />
             <div className="core networkCore">
-              <Radar className="coreIcon" size={52} />
+              <img className="coreBrandIcon" src="/brand/mineka_icon_web.svg" alt="" aria-hidden="true" />
               <span>{t('hero.core')}</span>
             </div>
             <div className="node nodeWhatsApp"><Bot size={18} /> {t('hero.nodes.whatsapp')}</div>
